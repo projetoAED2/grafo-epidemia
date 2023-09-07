@@ -48,6 +48,9 @@ public class Grafo {
             if (contato.getIndividuoOrigem().equals(individuo)){
                 adjacentes.add(contato.getIndividuoDestino());
             }
+            if (contato.getIndividuoDestino().equals(individuo)){
+                adjacentes.add(contato.getIndividuoOrigem());
+            }
         }
         return adjacentes;
     }

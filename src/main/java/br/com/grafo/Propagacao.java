@@ -1,14 +1,13 @@
 package br.com.grafo;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List   ;
 import java.util.PriorityQueue;
 
 // Representa a classe de busca em largura (BFS)
 public class Propagacao {
     private Grafo grafo;
     private List<Individuo> propagacao = new ArrayList<>();
-    private Integer grauMaximo = 0;
 
     public Propagacao(Grafo grafo) {
         this.grafo = grafo;
@@ -19,7 +18,6 @@ public class Propagacao {
         individuo.setCor(Cor.CINZA);
         fila.add(individuo);
 
-        int grau = 0;
         while (fila.size() > 0){
             Individuo v = fila.poll();
             List<Individuo> adjacenciaV = this.grafo.listarAsjacencias(v);
@@ -27,13 +25,14 @@ public class Propagacao {
                 if (u.getCor() == Cor.BRANCO){
                     this.propagacao.add(u);
                     u.setCor(Cor.CINZA);
-                    u.setGrauInfectado(grau);
+                    u.setGrauInfectado(v.getGrauInfectado()+1);
                     fila.add(u);
                 }
             }
-            grau++;
         }
-        this.grauMaximo = grau;
+        for (Individuo indiviuo : this.grafo.getVertices()) {
+            indiviuo.setCor(Cor.BRANCO);
+        }
     }
 
     public void imprimir() {

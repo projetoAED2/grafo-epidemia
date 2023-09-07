@@ -12,18 +12,14 @@ import java.util.Objects;
 
 public class Execucao {
 
-    //saida teste 01
-    //10, 4, 11
-    //1, 7, 2, 8
-    //3, 5, 6
-    public static void executarTeste01() {
-
+    public static void executarTeste(String fileVertices, String fileArestas, Long codIndividuoOrigem) {
+        System.out.println("\nIniciando teste...");
         JSONArray jsonArray;
         Grafo grafo = new Grafo();
         grafo.imprimir();
 
         List<Individuo> individuos = new ArrayList<>();
-        jsonArray = readJson("teste01-vertices.json");
+        jsonArray = readJson(fileVertices);
         System.out.println("Adicionando Individuos (vertices)...");
 
         for (int i = 0; i < Objects.requireNonNull(jsonArray).length(); i++) {
@@ -35,7 +31,7 @@ public class Execucao {
         }
 
         List<Contato> rede = new ArrayList<>();
-        jsonArray = readJson("teste01-arestas.json");
+        jsonArray = readJson(fileArestas);
         System.out.println("Adicionando Contatos (arestas)...");
 
         for (int i = 0; i < Objects.requireNonNull(jsonArray).length(); i++) {
@@ -51,7 +47,7 @@ public class Execucao {
         grafo.setArestas(rede);
 
         Propagacao propagacao = new Propagacao(grafo);
-        propagacao.execute(Objects.requireNonNull(Utils.encontrarIndividuoPorCodigo(individuos, 9L)));
+        propagacao.execute(Objects.requireNonNull(Utils.encontrarIndividuoPorCodigo(individuos, codIndividuoOrigem)));
 
         propagacao.imprimir();
     }
