@@ -3,11 +3,11 @@ package br.com.grafo;
 //Class aresta
 public class Contato {
     private Individuo individuoOrigem;
-    private Individuo individuoDistino;
+    private Individuo individuoDestino;
 
     public Contato(Individuo individuoEntrada, Individuo individuoSaida) {
         this.individuoOrigem = individuoEntrada;
-        this.individuoDistino = individuoSaida;
+        this.individuoDestino = individuoSaida;
     }
 
     public Individuo getIndividuoOrigem() {
@@ -18,11 +18,11 @@ public class Contato {
         this.individuoOrigem = individuoOrigem;
     }
 
-    public Individuo getIndividuoDistino() {
-        return individuoDistino;
+    public Individuo getIndividuoDestino() {
+        return individuoDestino;
     }
 
-    public void setIndividuoDistino(Individuo individuoDistino) {
-        this.individuoDistino = individuoDistino;
+    public void setIndividuoDestino(Individuo individuoDestino) {
+        this.individuoDestino = individuoDestino;
     }
 }
