@@ -38,7 +38,7 @@ public class Grafo {
         return this.vertices.size();
     }
 
-    public Integer getIndiceVertices(Individuo individuo){
+    public Integer getIndiceVertice(Individuo individuo){
         return this.vertices.indexOf(individuo);
     }
 

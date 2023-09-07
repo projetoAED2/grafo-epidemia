@@ -5,7 +5,7 @@ public class Individuo implements Comparable<Individuo>{
     private Long codigo;
     private String nome;
     private Boolean infectado;
-    private Cor cor;
+    private Cor cor = Cor.BRANCO;
 
     public Individuo(Long codigo, String nome, Boolean infectado) {
         this.codigo = codigo;
@@ -14,15 +14,19 @@ public class Individuo implements Comparable<Individuo>{
     }
 
     public Long getCodigo() {
-        return codigo;
+        return this.codigo;
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public Boolean getInfectado() {
-        return infectado;
+        return this.infectado;
+    }
+
+    public Cor getCor() {
+        return this.cor;
     }
 
     public void setCodigo(Long codigo) {
@@ -31,6 +35,10 @@ public class Individuo implements Comparable<Individuo>{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
     }
 
     public void setInfectado(Boolean infectado) {
@@ -51,5 +59,4 @@ public class Individuo implements Comparable<Individuo>{
         }
         return resultado;
     }
-
 }
