@@ -1,3 +1,4 @@
 grafo-epidemia.iml
 .idea
 /out/**
+/target/

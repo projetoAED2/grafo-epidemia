@@ -1,20 +1,41 @@
 package br.com.grafo;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nIniciando cálculo da epidemia...\n");
-        //saida grau[grupo], ex: 1[2, 3, 4]; grau 1, grupo 2, 3, 4;
-        //saida 1[10, 4, 11]; 2[1, 7, 2, 8]; 3[3, 5, 6]
-        Execucao.executarTeste("teste01-vertices.json", "teste01-arestas.json", 9L);
-        //saida 1[2]; 2[4, 5]; 3[9, 1, 7, 8]; 4[3, 10, 11]
-        Execucao.executarTeste("teste01-vertices.json", "teste01-arestas.json", 6L);
-        //saida 1[9, 1, 7, 2, 8]; 2[3, 5, 6, 10, 11]
-        Execucao.executarTeste("teste01-vertices.json", "teste01-arestas.json", 4L);
+        Scanner scanner = new Scanner(System.in);
+        String fileVertices = "teste01-vertices.json"; 
+        String fileArestas = "teste01-arestas.json"; 
 
-        //TODO menu para usuário adicionar informações na mão
-        //TODO adicionar os demais casos de teste a partir do grafo exemplo (as origens que faltam
-        //TODO acrescentar ou não mais variáveis (se fizer lembrar de modificar o slide e os métodos de print)
-        //TODO incrementar mais algo na lógica da execução na classe Propagacao, pode ser de acordo com alguma variável nova do individuo
-        //TODO remover codigo não utilizado
+        Grafo grafo = new Grafo();
+
+        while (true) {
+            System.out.println("\nOpções:");
+            System.out.println("1. Rastrear a propagação da doença a partir de uma pessoa infectada");
+            System.out.println("2. Sair");
+            System.out.print("Escolha uma opção: ");
+            
+            try {
+                int escolha = scanner.nextInt();
+
+                if (escolha == 1) {
+                    System.out.print("Digite o código da pessoa infectada: ");
+                    Long codigoInfectado = scanner.nextLong();
+
+                    Execucao.executarTeste(fileVertices, fileArestas, codigoInfectado);
+                } else if (escolha == 2) {
+                    System.out.println("Saindo do programa.");
+                    break;
+                } else {
+                    System.out.println("Opção inválida. Tente novamente.");
+                }
+            } catch (java.util.InputMismatchException e) {
+                System.out.println("Entrada inválida. Certifique-se de inserir um número válido.");
+                scanner.next();
+            }
+        }
+
+        scanner.close();
     }
 }

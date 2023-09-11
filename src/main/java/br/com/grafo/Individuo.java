@@ -52,4 +52,5 @@ public class Individuo implements Comparable<Individuo>{
         }
         return resultado;
     }
+
 }

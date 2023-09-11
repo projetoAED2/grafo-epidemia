@@ -1,0 +1,42 @@
+[
+  {
+    "codigoOrigem": 9,
+    "codigoDestino": 10
+  },
+  {
+    "codigoOrigem": 9,
+    "codigoDestino": 4
+  },
+  {
+    "codigoOrigem": 9,
+    "codigoDestino": 11
+  },
+  {
+    "codigoOrigem": 4,
+    "codigoDestino": 1
+  },
+  {
+    "codigoOrigem": 4,
+    "codigoDestino": 7
+  },
+  {
+    "codigoOrigem": 4,
+    "codigoDestino": 2
+  },
+  {
+    "codigoOrigem": 4,
+    "codigoDestino": 8
+  },
+  {
+    "codigoOrigem": 1,
+    "codigoDestino": 3
+  },
+  {
+    "codigoOrigem": 2,
+    "codigoDestino": 5
+  },
+  {
+    "codigoOrigem": 2,
+    "codigoDestino": 6
+  }
+]
