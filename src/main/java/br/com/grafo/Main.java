@@ -3,39 +3,42 @@ package br.com.grafo;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String fileVertices = "teste01-vertices.json"; 
-        String fileArestas = "teste01-arestas.json"; 
 
-        Grafo grafo = new Grafo();
+	 public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+	        int opcao;
 
-        while (true) {
-            System.out.println("\nOpções:");
-            System.out.println("1. Rastrear a propagação da doença a partir de uma pessoa infectada");
-            System.out.println("2. Sair");
-            System.out.print("Escolha uma opção: ");
-            
-            try {
-                int escolha = scanner.nextInt();
+	        Execucao.inicializarDados("vertices.json", "arestas.json");
 
-                if (escolha == 1) {
-                    System.out.print("Digite o código da pessoa infectada: ");
-                    Long codigoInfectado = scanner.nextLong();
+	        do {
+	            System.out.println("\nOpções:");
+	            System.out.println("1. Listar todas as pessoas");
+	            System.out.println("2. Rastreamento a partir de uma pessoa infectada");
+	            System.out.println("3. Sair");
+	            System.out.print("Escolha uma opção: ");
 
-                    Execucao.executarTeste(fileVertices, fileArestas, codigoInfectado);
-                } else if (escolha == 2) {
-                    System.out.println("Saindo do programa.");
-                    break;
-                } else {
-                    System.out.println("Opção inválida. Tente novamente.");
-                }
-            } catch (java.util.InputMismatchException e) {
-                System.out.println("Entrada inválida. Certifique-se de inserir um número válido.");
-                scanner.next();
-            }
-        }
+	            opcao = scanner.nextInt();
+	            scanner.nextLine();
 
-        scanner.close();
-    }
+	            switch (opcao) {
+	                case 1:
+	                    Execucao.listarTodasPessoas();
+	                    break;
+	                case 2:
+	                    System.out.print("Digite o código da pessoa infectada: ");
+	                    Long codIndividuoOrigem = scanner.nextLong();
+	                    Execucao.executarTeste(codIndividuoOrigem);
+	                    Execucao.zerarGrauInfeccao(Execucao.listaTodasPessoas);
+	                    break;
+	                case 3:
+	                    System.out.println("Saindo...");
+	                    break;
+	                default:
+	                    System.out.println("Opção inválida. Tente novamente.");
+	                    break;
+	            }
+	        } while (opcao != 3);
+
+	        scanner.close();
+	    }
 }
