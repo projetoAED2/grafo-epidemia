@@ -3,6 +3,7 @@ package br.com.grafo;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import javax.xml.transform.Source;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -47,9 +48,14 @@ public class Execucao {
         grafo.setArestas(rede);
 
         Propagacao propagacao = new Propagacao(grafo);
-        propagacao.execute(Objects.requireNonNull(Utils.encontrarIndividuoPorCodigo(individuos, codIndividuoOrigem)));
 
-        propagacao.imprimir();
+        Individuo individuo = Utils.encontrarIndividuoPorCodigo(individuos, codIndividuoOrigem);
+        if (individuo != null) {
+            propagacao.execute(individuo);
+            propagacao.imprimir();
+        } else {
+            System.out.println("Individuo informado não existe!");
+        }
     }
 
     private static JSONArray readJson(String file) {
