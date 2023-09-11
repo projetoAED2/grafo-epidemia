@@ -12,7 +12,7 @@ public class Main {
 
 	        do {
 	            System.out.println("\nOpções:");
-	            System.out.println("1. Listar todas as pessoas");
+	            System.out.println("1. Listar todas as pessoas infectadas");
 	            System.out.println("2. Rastreamento a partir de uma pessoa infectada");
 	            System.out.println("3. Sair");
 	            System.out.print("Escolha uma opção: ");

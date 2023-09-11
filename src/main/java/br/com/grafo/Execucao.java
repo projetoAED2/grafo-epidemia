@@ -64,10 +64,11 @@ public class Execucao {
     }
 
     public static void listarTodasPessoas() {
-        System.out.println("\nLista de todas as pessoas:");
+    	System.out.println("\n---------------- Lista de pessoas infectadas: ----------------");
         for (Individuo individuo : listaTodasPessoas) {
             System.out.println("Código: " + individuo.getCodigo());
             System.out.println("Nome: " + individuo.getNome());
+            System.out.println("-------------------------");
         }
     }
 
